@@ -7,7 +7,7 @@ import torch
 from transformers import AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("Harich/Harich.7B")
-input_text = 'A funny prompt would be '
+input_text = 'A funny prompt would be'
 input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")["input_ids"].transpose(0,1)
 model = MambaModel.from_pretrained(model_name = "Harich/Harich.7B").cuda().half()
 tokens_to_generate = 20
